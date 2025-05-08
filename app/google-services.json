@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "950479093610",
+    "project_id": "tracktrail-9eed7",
+    "storage_bucket": "tracktrail-9eed7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950479093610:android:d254c3dfa71406df016f13",
+        "android_client_info": {
+          "package_name": "com.breshy.tracktrail"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDssKqyUTcnStip5PWqZpL3mBbgrkM0lWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
