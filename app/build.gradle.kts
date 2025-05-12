@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -77,8 +78,4 @@ dependencies {
 
     //Livedata
     implementation("androidx.compose.runtime:runtime-livedata:1.6.4")
-
-    //Firebase
-    // implementation("com.google.firebase:firebase-auth:22.3.0")
-    //  implementation("com.google.firebase:firebase-database-ktx:21.0.0")
 }

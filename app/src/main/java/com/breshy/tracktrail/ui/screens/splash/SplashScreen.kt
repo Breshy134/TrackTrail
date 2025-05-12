@@ -33,7 +33,7 @@ fun SplashScreen(navController: NavHostController) {
     val coroutine = rememberCoroutineScope()
     coroutine.launch {
         delay(2000)
-        navController.navigate(ROUT_LOGIN)
+        navController.navigate(ROUT_DASHBOARD)
     }
     //End if Navigation
 
@@ -47,7 +47,7 @@ fun SplashScreen(navController: NavHostController) {
         Image(
             painter = painterResource(R.drawable.track),
             contentDescription = "shirts",
-            modifier = Modifier.size(300.dp)
+            modifier = Modifier.size(200.dp)
         )
     }
 }

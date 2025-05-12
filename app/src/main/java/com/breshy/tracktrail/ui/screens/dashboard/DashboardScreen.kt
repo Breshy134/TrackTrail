@@ -13,12 +13,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,9 +37,11 @@ import androidx.navigation.compose.rememberNavController
 import com.breshy.tracktrail.R
 import com.breshy.tracktrail.navigation.ROUT_BOOKINGS
 import com.breshy.tracktrail.navigation.ROUT_BUS
+import com.breshy.tracktrail.navigation.ROUT_DASHBOARD
 import com.breshy.tracktrail.navigation.ROUT_HOME
 import com.breshy.tracktrail.ui.theme.newsky
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardScreen(navController: NavHostController) {
     Column (
@@ -39,11 +50,8 @@ fun DashboardScreen(navController: NavHostController) {
             .background(newsky)
             .verticalScroll(rememberScrollState())
     ){
-        Text(
-            text = "TrackTrail",
-            fontWeight = FontWeight.ExtraBold,
-            fontSize = 30.sp,
-            modifier = Modifier.padding(start = 20.dp, top = 9.dp)
+        TopAppBar(
+            title = { Text(text = "TrackTrail", fontFamily = FontFamily.Cursive, fontWeight = FontWeight.Bold, fontSize = 30.sp) },
         )
         //card1
         Card (
@@ -88,7 +96,7 @@ fun DashboardScreen(navController: NavHostController) {
             )
             Text(
                 text = "Book Your Bus Tickets Here",
-                modifier = Modifier.fillMaxSize().padding(start = 50.dp, top = 10.dp),
+                modifier = Modifier.fillMaxSize().padding(start = 50.dp),
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp
             )

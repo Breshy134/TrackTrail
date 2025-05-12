@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.breshy.tracktrail.R
 import com.breshy.tracktrail.model.User
-import com.breshy.tracktrail.navigation.ROUT_DASHBOARD
 import com.breshy.tracktrail.navigation.ROUT_LOGIN
 import com.breshy.tracktrail.viewmodel.AuthViewModel
 
@@ -198,7 +197,7 @@ fun RegisterScreen(
                         onRegisterSuccess()
                     }
                 },
-                modifier = Modifier.fillMaxSize().clickable{navController.navigate(ROUT_DASHBOARD)},
+                modifier = Modifier.fillMaxSize().clickable{navController.navigate(ROUT_LOGIN)},
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
             ) {
                 Text("Register", color = Color.White)

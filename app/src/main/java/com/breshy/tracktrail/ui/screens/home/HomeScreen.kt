@@ -46,6 +46,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -99,7 +100,7 @@ fun HomeScreen(navController: NavHostController) {
                     icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
-                         navController.navigate("")
+                        navController.navigate("")
                     }
                 )
 
@@ -114,7 +115,7 @@ fun HomeScreen(navController: NavHostController) {
                     .fillMaxSize()
             ) {
                 TopAppBar(
-                    title = { Text(text = "TrackTrail") },
+                    title = { Text(text = "TrackTrail", fontFamily = FontFamily.Cursive, fontWeight = FontWeight.Bold, fontSize = 30.sp) },
                     navigationIcon = {
                         IconButton(onClick = { ROUT_DASHBOARD}) {
                             Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
@@ -145,7 +146,7 @@ fun HomeScreen(navController: NavHostController) {
                         Column() {
 
                             Spacer(modifier = Modifier.height(30.dp))
-                            
+
                             //Variables
                             var entersource by remember { mutableStateOf("") }
                             var enterdestination by remember { mutableStateOf("") }
@@ -356,8 +357,8 @@ fun HomeScreen(navController: NavHostController) {
             //End of Card2
 
 
-            }
-            //End of Row
+        }
+        //End of Row
 
     )
 

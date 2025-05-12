@@ -48,6 +48,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -112,7 +113,7 @@ fun BookingsScreen(navController: NavHostController) {
 
             ){
                 TopAppBar(
-                    title = { Text(text = "Bookings") },
+                    title = { Text(text = "Bookings", fontFamily = FontFamily.Cursive, fontWeight = FontWeight.Bold, fontSize = 30.sp) },
                     navigationIcon = {
                         IconButton(onClick = { ROUT_DASHBOARD}) {
                             Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
