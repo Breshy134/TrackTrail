@@ -1,30 +1,44 @@
 package com.breshy.tracktrail.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.breshy.tracktrail.data.UserDatabase
 import com.breshy.tracktrail.repository.UserRepository
 import com.breshy.tracktrail.ui.screens.about.AboutScreen
+import com.breshy.tracktrail.ui.screens.bookings.BookingViewModel
 import com.breshy.tracktrail.ui.screens.bookings.BookingsScreen
 import com.breshy.tracktrail.ui.screens.bus.BusScreen
 import com.breshy.tracktrail.ui.screens.dashboard.DashboardScreen
-import com.breshy.tracktrail.ui.screens.home.HomeScreen
 import com.breshy.tracktrail.ui.screens.pay.PayScreen
 import com.breshy.tracktrail.ui.screens.splash.SplashScreen
+import com.breshy.tracktrail.ui.screens.train.TrainScreen
 import com.breshy.tracktrail.viewmodel.AuthViewModel
+import com.breshy.tracktrail.viewmodel.ProductViewModel
 import com.breshy.zawadimart.ui.screens.auth.LoginScreen
 import com.breshy.zawadimart.ui.screens.auth.RegisterScreen
+import com.breshy.zawadimart.ui.screens.products.AddProductScreen
+import com.breshy.zawadimart.ui.screens.products.EditProductScreen
+import com.breshy.zawadimart.ui.screens.products.ProductListScreen
 
+@RequiresApi(Build.VERSION_CODES.Q)
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_SPLASH
+    startDestination: String = ROUT_SPLASH,
+    productViewModel: ProductViewModel = viewModel(),
+    bookingViewModel: BookingViewModel = viewModel(),
+
 ) {
 
     val context = LocalContext.current
@@ -35,8 +49,8 @@ fun AppNavHost(
         startDestination = startDestination,
         modifier = modifier
     ) {
-        composable(ROUT_HOME) {
-            HomeScreen(navController)
+        composable(ROUT_TRAIN) {
+            TrainScreen(navController)
         }
         composable(ROUT_ABOUT) {
             AboutScreen(navController)
@@ -45,7 +59,7 @@ fun AppNavHost(
             BusScreen(navController)
         }
         composable(ROUT_BOOKINGS) {
-            BookingsScreen(navController)
+            BookingsScreen(navController,bookingViewModel)
         }
         composable(ROUT_PAY) {
             PayScreen(navController)
@@ -76,6 +90,25 @@ fun AppNavHost(
                 navController.navigate(ROUT_DASHBOARD) {
                     popUpTo(ROUT_DASHBOARD) { inclusive = true }
                 }
+            }
+        }
+
+        // PRODUCTS
+        composable(ROUT_ADD_PRODUCT) {
+            AddProductScreen(navController, productViewModel)
+        }
+
+        composable(ROUT_PRODUCT_LIST) {
+            ProductListScreen(navController, productViewModel)
+        }
+
+        composable(
+            route = ROUT_EDIT_PRODUCT,
+            arguments = listOf(navArgument("productId") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val productId = backStackEntry.arguments?.getInt("productId")
+            if (productId != null) {
+                EditProductScreen(productId, navController, productViewModel)
             }
         }
 

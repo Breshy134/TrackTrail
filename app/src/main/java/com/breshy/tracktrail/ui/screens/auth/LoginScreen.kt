@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.breshy.tracktrail.R
 import com.breshy.tracktrail.navigation.ROUT_DASHBOARD
-import com.breshy.tracktrail.navigation.ROUT_HOME
 import com.breshy.tracktrail.navigation.ROUT_REGISTER
 import com.breshy.tracktrail.viewmodel.AuthViewModel
 

@@ -1,4 +1,4 @@
-package com.breshy.tracktrail.ui.screens.home
+package com.breshy.tracktrail.ui.screens.train
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -18,13 +17,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Place
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -58,19 +55,14 @@ import androidx.navigation.compose.rememberNavController
 import com.breshy.tracktrail.R
 import com.breshy.tracktrail.navigation.ROUT_BOOKINGS
 import com.breshy.tracktrail.navigation.ROUT_DASHBOARD
-import com.breshy.tracktrail.navigation.ROUT_PAY
 import com.breshy.tracktrail.ui.theme.brown
 import com.breshy.tracktrail.ui.theme.green
-import com.breshy.tracktrail.ui.theme.newBlue
 import com.breshy.tracktrail.ui.theme.newbrown
-import com.breshy.tracktrail.ui.theme.newgreen
 import com.breshy.tracktrail.ui.theme.newgrey
-import com.breshy.tracktrail.ui.theme.neworange
-import com.breshy.tracktrail.ui.theme.newsky
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavHostController) {
+fun TrainScreen(navController: NavHostController) {
     //Scaffold
 
     var selectedIndex by remember { mutableStateOf(0) }
@@ -96,13 +88,6 @@ fun HomeScreen(navController: NavHostController) {
                         navController.navigate(ROUT_BOOKINGS)
                     }
                 )
-                NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    selected = selectedIndex == 2,
-                    onClick = { selectedIndex = 2
-                        navController.navigate("")
-                    }
-                )
 
             }
         },
@@ -117,15 +102,10 @@ fun HomeScreen(navController: NavHostController) {
                 TopAppBar(
                     title = { Text(text = "TrackTrail", fontFamily = FontFamily.Cursive, fontWeight = FontWeight.Bold, fontSize = 30.sp) },
                     navigationIcon = {
-                        IconButton(onClick = { ROUT_DASHBOARD}) {
+                        IconButton(onClick = {navController.navigate(ROUT_DASHBOARD)}) {
                             Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
                         }
                     },
-                    actions = {
-                        IconButton(onClick = {}) {
-                            Icon(imageVector = Icons.Default.MoreVert, contentDescription = "")
-                        }
-                    }
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -194,7 +174,7 @@ fun HomeScreen(navController: NavHostController) {
                             //Button
 
                             Button(
-                                onClick = { ROUT_PAY},
+                                onClick = {navController.navigate(ROUT_BOOKINGS)},
                                 colors = ButtonDefaults.buttonColors(green),
                                 modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
                             ) {
@@ -367,6 +347,6 @@ fun HomeScreen(navController: NavHostController) {
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview(){
-    HomeScreen(rememberNavController())
+fun TrainScreenPreview(){
+    TrainScreen(rememberNavController())
 }

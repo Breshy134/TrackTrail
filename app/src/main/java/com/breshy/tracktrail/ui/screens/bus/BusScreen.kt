@@ -95,13 +95,6 @@ fun BusScreen(navController: NavHostController) {
                         navController.navigate(ROUT_BOOKINGS)
                     }
                 )
-                NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    selected = selectedIndex == 2,
-                    onClick = { selectedIndex = 2
-                        navController.navigate("")
-                    }
-                )
 
             }
         },
@@ -117,15 +110,10 @@ fun BusScreen(navController: NavHostController) {
                 TopAppBar(
                     title = { Text(text = "TrackTrail", fontFamily = FontFamily.Cursive, fontWeight = FontWeight.Bold, fontSize = 30.sp) },
                     navigationIcon = {
-                        IconButton(onClick = { ROUT_DASHBOARD}) {
+                        IconButton(onClick = {navController.navigate(ROUT_DASHBOARD)}) {
                             Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
                         }
                     },
-                    actions = {
-                        IconButton(onClick = {}) {
-                            Icon(imageVector = Icons.Default.MoreVert, contentDescription = "")
-                        }
-                    }
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -194,7 +182,7 @@ fun BusScreen(navController: NavHostController) {
                             //Button
 
                             Button(
-                                onClick = { ROUT_BOOKINGS},
+                                onClick = {navController.navigate(ROUT_BOOKINGS)},
                                 colors = ButtonDefaults.buttonColors(green),
                                 modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
                             ) {

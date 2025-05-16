@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.breshy.tracktrail.R
+import com.breshy.tracktrail.navigation.ROUT_BOOKINGS
 import com.breshy.tracktrail.navigation.ROUT_DASHBOARD
 import com.breshy.tracktrail.navigation.ROUT_LOGIN
 import com.breshy.tracktrail.navigation.ROUT_REGISTER
@@ -33,7 +34,7 @@ fun SplashScreen(navController: NavHostController) {
     val coroutine = rememberCoroutineScope()
     coroutine.launch {
         delay(2000)
-        navController.navigate(ROUT_DASHBOARD)
+        navController.navigate(ROUT_BOOKINGS)
     }
     //End if Navigation
 
